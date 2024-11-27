@@ -24,6 +24,9 @@
   .w-webflow-badge{
   display:none !important;
   }
+  .message {
+    display: none; /* Скрываем все сообщения по умолчанию */
+  }
  </style>
 </head>
 <body>
@@ -41,8 +44,18 @@
           <div class="w-layout-grid grid-2-columns grow-section-v1-grid">
             <div data-w-id="d43f9b6b-c8e8-5cd5-70b9-edf42858e137" style="-webkit-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 10%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="inner-container _565px _100---tablet">
               <div class="text-center---tablet">
-                <h1 class="display-1">Заявка успешно отправлена</h1>
-                <p class="mg-bottom-48px">Наш специалист свяжется с вами в ближайшее время. Спасибо за обращение в нашу патронажную службу!</p>
+                <div id="success-message" class="message">
+                  <h1 class="display-1">Заявка успешно отправлена</h1>
+                  <p class="mg-bottom-48px">Менеджер свяжется с вами в ближайшее время. Спасибо за обращение в нашу патронажную службу!</p>
+                </div>
+                <div id="error-message" class="message">
+                  <h1 class="display-1">Что-то пошло не так!</h1>
+                  <p class="mg-bottom-48px">Проверьте введенные данные и попробуйте отправить заявку ещё раз!</p>
+                </div>
+                <div id="default-message" class="message">
+                  <h1>Спасибо за обращение в нашу патронажную службу</h1>
+                  <p>Пожалуйста, заполните любую форму обратной связи, если ещё этого не сделали</p>
+                </div>
                 <div class="mg-bottom-32px">
                   <div class="inner-container _488px _100---tablet">
                     <a href="index.html" class="btn-primary w-button">Вернуться на главную страницу</a>
@@ -85,5 +98,22 @@
   </div>
   <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=67161b9cd8e355c1224cffbd" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="js/webflow.js" type="text/javascript"></script>
+  <script>
+    // Функция для получения значения параметра из URL
+    function getURLParameter(name) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
+    // Получаем значение параметра "status"
+    const status = getURLParameter('status');
+    // Логика отображения сообщений
+    if (status === 'success') {
+      document.getElementById('success-message').style.display = 'block';
+    } else if (status === 'error') {
+      document.getElementById('error-message').style.display = 'block';
+    } else {
+      document.getElementById('default-message').style.display = 'block';
+    }
+</script>
 </body>
 </html>

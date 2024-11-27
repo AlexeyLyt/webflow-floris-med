@@ -21,12 +21,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	if ((!$name && !$tel && !$email) || $honeypot) return;
 	if (mail("katowicelyt@yandex.ru", "Заявка с главной страницы сайта", "Имя: " . $name . "\r\n" . "Телефон: " . $tel . "\r\n" . "Почта: " . "$email", $headers)) {
 		// echo "Сообщение успешно отправлено";
-		header('Location: /coming-soon.html?status=success');
+		header('Location: /contact-form-handler.html?status=success');
 	} else {
-		echo "При отправке сообщения возникли ошибки";
+		// echo "При отправке сообщения возникли ошибки";
+		header('Location: /contact-form-handler.html?status=error');
 	}
 	// } else {
-	//     // Если проверка не прошла - выводим ошибку
+	//     // Если проверка не прошла - выводим ошибку (страница с сообщением о Тех работах или подобном + просьба позвонить напрямую по телефону)
 	//     echo 'Verification failed. Please try again';
 	// }
 }
