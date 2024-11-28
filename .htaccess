@@ -1,0 +1,36 @@
+RewriteEngine on
+RewriteRule ^index\.php$ /index.html [R=301,L]
+RewriteRule ^about\.php$ /about.html [R=301,L]
+RewriteRule ^contact\.php$ /contact.html [R=301,L]
+RewriteRule ^prices\.php$ /pricing.html [R=301,L]
+RewriteRule ^vacancy\.php$ /vacancies.html [R=301,L]
+RewriteRule ^sidelki\.php$ /sidelki.html [R=301,L]
+RewriteRule ^uslugi-sidelki\.php$ /services.html [R=301,L]
+
+RewriteRule ^osobennosti-uhoda-za-bolnymi-s-prolezhnyami\.php$ /blog-pages/osobennosti-uhoda-za-bolnymi-s-prolezhnyami.html [R=301,L]
+RewriteRule ^rekomendatsii-po-uhodu-za-bolnymi-posle-insulta\.php$ /blog-pages/rekomendatsii-po-uhodu-za-bolnymi-posle-insulta.html [R=301,L]
+RewriteRule ^sidelka-kogda-bez-neyo-ne-obojtis\.php$ /blog-pages/sidelka-kogda-bez-neyo-ne-obojtis.html [R=301,L]
+RewriteRule ^sidelka-s-prozhivaniem-ili-pochasovaya-sidelka\.php$ /blog-pages/sidelka-s-prozhivaniem-ili-pochasovaya-sidelka.html [R=301,L]
+RewriteRule ^sovety-po-uhodu-za-invalidami\.php$ /blog-pages/sovety-po-uhodu-za-invalidami.html [R=301,L]
+RewriteRule ^uhod-za-bolnymi-s-demenciej\.php$ /blog-pages/uhod-za-bolnymi-s-demenciej.html [R=301,L]
+
+RewriteRule ^sidelka-companionka\.php$ /services-pages/sidelka-companionka.html [R=301,L]
+RewriteRule ^sidelka-dlya-bolnogo-demenciey\.php$ /services-pages/sidelka-dlya-bolnogo-demenciey.html [R=301,L]
+RewriteRule ^sidelka-dlya-bolnogo-posle-insulta\.php$ /services-pages/sidelka-dlya-bolnogo-posle-insulta.html [R=301,L]
+RewriteRule ^sidelka-dlya-invalida\.php$ /services-pages/sidelka-dlya-invalida.html [R=301,L]
+RewriteRule ^sidelka-dlya-lezhachego\.php$ /services-pages/sidelka-dlya-lezhachego.html [R=301,L]
+RewriteRule ^sidelka-dlya-pozhilyh\.php$ /services-pages/sidelka-dlya-pozhilyh.html [R=301,L]
+RewriteRule ^sidelka-dlya-prestarelyh\.php$ /services-pages/sidelka-dlya-prestarelyh.html [R=301,L]
+RewriteRule ^sidelka-na-dom\.php$ /services-pages/sidelka-na-dom.html [R=301,L]
+RewriteRule ^sidelka-nochnaya\.php$ /services-pages/sidelka-nochnaya.html [R=301,L]
+RewriteRule ^sidelka-pochasovaya\.php$ /services-pages/sidelka-pochasovaya.html [R=301,L]
+RewriteRule ^sidelka-prihodyaschaya\.php$ /services-pages/sidelka-prihodyaschaya.html [R=301,L]
+RewriteRule ^sidelka-s-med-obrazovaniem\.php$ /services-pages/sidelka-s-med-obrazovaniem.html [R=301,L]
+RewriteRule ^sidelka-s-prozhivaniem\.php$ /services-pages/sidelka-s-prozhivaniem.html [R=301,L]
+RewriteRule ^sidelka-sutochnaya\.php$ /services-pages/sidelka-sutochnaya.html [R=301,L]
+RewriteRule ^sidelka-v-bolnizu\.php$ /services-pages/sidelka-v-bolnizu.html [R=301,L]
+
+# SetEnvIf X-Forwarded-Proto https SERVER_PORT=443
+# SetEnvIf X-Forwarded-Proto https HTTPS=on
+# RewriteCond %{HTTP:HTTPS} !=on [NC]
+# RewriteRule ^(.*)$ https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]

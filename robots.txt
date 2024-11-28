@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /rabota-sidelkoy.php
+Host: https://floris-med.ru
+
+Sitemap: https://floris-med.ru/sitemap.xml

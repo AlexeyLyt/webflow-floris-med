@@ -1795,3 +1795,8 @@ textarea.w-select {
   top: 0;
   left: 0;
 }
+
+/* custom css */
+.web-master {
+  display: none; 
+}
