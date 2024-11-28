@@ -363,7 +363,7 @@ textarea.w-select {
   height: auto;
 }
 .w-select {
-  background-color: #f3f3f3;
+  /* background-color: #f3f3f3; */
 }
 .w-select[multiple] {
   height: auto;
