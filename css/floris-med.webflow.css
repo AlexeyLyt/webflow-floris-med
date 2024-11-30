@@ -12,7 +12,7 @@
   --transparent: transparent;
   --secondary--color-3: #e5f8f0;
   --general--shadow-03: #3f3f3f1a;
-  --secondary--color-1: #ffa794;
+  --secondary--color-1: #007c4a;
   --neutral--700: #191a2f;
   --neutral--500: #8d8d9b;
   --neutral--400: #d0d0db;
@@ -6517,7 +6517,7 @@ figcaption {
   flex: 0 auto;
   width: 52px;
   min-height: 52px;
-  padding-left: 4px;
+  padding-left: 2px;
   transition-property: none;
   position: static;
 }
@@ -11573,6 +11573,7 @@ figcaption {
   .header-nav-menu-wrapper {
     padding-top: 20px;
     padding-bottom: 28px;
+    display: none;
   }
 
   .header-nav-list-item {
