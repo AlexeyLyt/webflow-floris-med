@@ -30,7 +30,7 @@ RewriteRule ^sidelka-s-prozhivaniem\.php$ /services-pages/sidelka-s-prozhivaniem
 RewriteRule ^sidelka-sutochnaya\.php$ /services-pages/sidelka-sutochnaya.html [R=301,L]
 RewriteRule ^sidelka-v-bolnizu\.php$ /services-pages/sidelka-v-bolnizu.html [R=301,L]
 
-# SetEnvIf X-Forwarded-Proto https SERVER_PORT=443
-# SetEnvIf X-Forwarded-Proto https HTTPS=on
-# RewriteCond %{HTTP:HTTPS} !=on [NC]
-# RewriteRule ^(.*)$ https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
+SetEnvIf X-Forwarded-Proto https SERVER_PORT=443
+SetEnvIf X-Forwarded-Proto https HTTPS=on
+RewriteCond %{HTTP:HTTPS} !=on [NC]
+RewriteRule ^(.*)$ https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]

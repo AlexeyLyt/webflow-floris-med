@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			if (!$email) $isValid = false;
 			$message = "Почта или телефон: $email";
 			break;
-		
+
 		case 'form-from-services':
 			$formHeaderName = 'Заявка c посадочной страницы услуг';
 			if (!$name && !$phone && !$email) $isValid = false;
@@ -100,17 +100,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	}
 
 	// Проверка ответа от reCAPTCHA
-	// if ($responseData->success && $responseData->score >= 0.5) {
-	if (!$isValid || $honeypot) return;
-	if (mail($to, $formHeaderName, $message, $headers)) {
-		// echo "Сообщение успешно отправлено";
-		header('Location: /contact-form-handler.html?status=success');
+	if ($responseData->success && $responseData->score >= 0.5) {
+		if (!$isValid || $honeypot) return;
+		if (mail($to, $formHeaderName, $message, $headers)) {
+			// echo "Сообщение успешно отправлено";
+			header('Location: /contact-form-handler.html?status=success');
+		} else {
+			// echo "При отправке сообщения возникли ошибки";
+			header('Location: /contact-form-handler.html?status=error');
+		}
 	} else {
-		// echo "При отправке сообщения возникли ошибки";
-		header('Location: /contact-form-handler.html?status=error');
+		// Если проверка не прошла - выводим ошибку (страница с сообщением о Тех работах или подобном + просьба позвонить напрямую по телефону)
+		echo 'Verification failed. Please try again';
 	}
-	// } else {
-	//     // Если проверка не прошла - выводим ошибку (страница с сообщением о Тех работах или подобном + просьба позвонить напрямую по телефону)
-	//     echo 'Verification failed. Please try again';
-	// }
 }
