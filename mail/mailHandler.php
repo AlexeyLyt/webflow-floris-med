@@ -102,7 +102,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	// Проверка ответа от reCAPTCHA
 	if ($responseData->success && $responseData->score >= 0.5) {
 		if (!$isValid || $honeypot) return;
-		if (mail($to, $formHeaderName, $message, $headers)) {
+		if (mail($to, $formHeaderName, $message)) {
+		// if (mail($to, $formHeaderName, $message, $headers)) {
 			// echo "Сообщение успешно отправлено";
 			header('Location: /contact-form-handler.html?status=success');
 		} else {
