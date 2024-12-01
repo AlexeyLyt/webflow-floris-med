@@ -1800,3 +1800,6 @@ textarea.w-select {
 .web-master {
   display: none; 
 }
+.grecaptcha-badge {
+  display: none;
+}
