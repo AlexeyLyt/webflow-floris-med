@@ -32,8 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 	// Настройки почты
 	$to = "katowicelyt@yandex.ru";
-	$headers = "From: alelytovc@yandex.ru\r\n";
-	$headers .= "Content-Type: text/plain; charset=utf-8";
+	// $headers = "From: alelytovc@yandex.ru\r\n";
+	// $headers .= "Content-Type: text/plain; charset=utf-8";
 
 	switch ($formName) {
 		case 'wf-form-Contact-Form':
