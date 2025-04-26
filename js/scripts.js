@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  addReCaptchaTokens();
+  // addReCaptchaTokens();
 });
 
 // Yandex.Metrika counter
