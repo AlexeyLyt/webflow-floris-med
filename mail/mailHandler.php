@@ -29,9 +29,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	// Запрос к API reCAPTCHA для проверки токена
 	$verifyResponse = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secret}&response={$recaptchaResponse}");
 	$responseData = json_decode($verifyResponse);
+	
+	// Для отладки
+    // echo "<pre>";
+    // print_r($responseData);
+    // echo "</pre>";
 
 	// Настройки почты
-	$to = "katowicelyt@yandex.ru";
+    // $to = "katowicelyt@yandex.ru";
+    // $to = "alelytovc@yandex.ru";
+	$to = "manager.floris-med@yandex.ru";
 	// $headers = "From: alelytovc@yandex.ru\r\n";
 	// $headers .= "Content-Type: text/plain; charset=utf-8";
 
@@ -100,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	}
 
 	// Проверка ответа от reCAPTCHA
-	if ($responseData->success && $responseData->score >= 0.5) {
+// 	if ($responseData->success && $responseData->score >= 0.1) {
 		if (!$isValid || $honeypot) return;
 		if (mail($to, $formHeaderName, $message)) {
 		// if (mail($to, $formHeaderName, $message, $headers)) {
@@ -110,8 +117,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			// echo "При отправке сообщения возникли ошибки";
 			header('Location: /contact-form-handler.html?status=error');
 		}
-	} else {
-		// Если проверка не прошла - выводим ошибку (страница с сообщением о Тех работах или подобном + просьба позвонить напрямую по телефону)
-		echo 'Verification failed. Please try again';
-	}
+// 	} else {
+// 		// Если проверка не прошла - выводим ошибку (страница с сообщением о Тех работах или подобном + просьба позвонить напрямую по телефону)
+// 		echo 'Ошибка верификации. Пожалуйста, попробуйте ещё раз';
+// 	}
 }
